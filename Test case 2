@@ -1,0 +1,15 @@
+#Test case 2
+visitor1 = Visitor("Reem Ali", 20, "Emarati") # Creating a visitor example
+
+artwork1 = Artwork("Mona Lisa", "Leonardo da Vinci", "1503", "Masterpiece") # Creating the artworks for the exhibition
+artwork2 = Artwork("Starry Night", "Vincent van Gogh", "1889", "Iconic")
+
+exhibition = Exhibition([artwork1, artwork2], "Gallery A", "2 weeks") # Create an exhibition
+
+# Calculate the prices
+ticket_price = TicketPricing.calculate_price(visitor1) # The price of the price without VAT(which is 5%)
+final_price = TicketPricing.apply_vat(ticket_price) # The price of the price including 5% VAT
+
+#printing both prices
+print("Ticket Price (before VAT):", ticket_price)
+print("Final Ticket Price (with VAT):", final_price)
