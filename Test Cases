@@ -1,0 +1,111 @@
+# test case 1 for artwork_management, addition of New Art to the Museum
+
+
+# Create a new artwork instance and add it to the museum
+new_artwork = Artwork("Mona Lisa", "Leonardo da Vinci", "1503–1506", "Iconic portrait")
+
+
+# Print out the details of the new artwork
+print("Title:", new_artwork.title)
+print("Artist:", new_artwork.artist)
+print("Date:", new_artwork.date)
+print("Significance:", new_artwork.significance)
+
+
+# Assert that the artwork is successfully added to the museum
+assert new_artwork.title == "Mona Lisa"
+assert new_artwork.artist == "Leonardo da Vinci"
+assert new_artwork.date == "1503–1506"
+assert new_artwork.significance == "Iconic portrait"
+
+
+
+
+#Test case 2
+visitor1 = Visitor("Reem Ali", 20, "Emarati") # Creating a visitor example
+
+artwork1 = Artwork("Mona Lisa", "Leonardo da Vinci", "1503", "Masterpiece") # Creating the artworks for the exhibition
+artwork2 = Artwork("Starry Night", "Vincent van Gogh", "1889", "Iconic")
+
+exhibition = Exhibition([artwork1, artwork2], "Gallery A", "2 weeks") # Create an exhibition
+
+# Calculate the prices
+ticket_price = TicketPricing.calculate_price(visitor1) # The price of the price without VAT(which is 5%)
+final_price = TicketPricing.apply_vat(ticket_price) # The price of the price including 5% VAT
+
+#printing both prices
+print("Ticket Price (before VAT):", ticket_price)
+print("Final Ticket Price (with VAT):", final_price)
+
+
+
+
+#Test case 3
+visitor1 = Visitor("Reem Ali", 9, "Emarati") # Creating a visitor example
+
+
+artwork1 = Artwork("Mona Lisa", "Leonardo da Vinci", "1503", "Masterpiece") # Creating the artworks for the exhibition
+artwork2 = Artwork("Starry Night", "Vincent van Gogh", "1889", "Iconic")
+
+
+exhibition = Exhibition([artwork1, artwork2], "Gallery A", "2 weeks") # Create an exhibition
+
+
+# Calculate the prices
+ticket_price = TicketPricing.calculate_price(visitor1) # The price of the price without VAT(which is 5%)
+final_price = TicketPricing.apply_vat(ticket_price) # The price of the price including 5% VAT
+
+
+#printing both prices
+print("Ticket Price (before VAT):", ticket_price)
+print("Final Ticket Price (with VAT):", final_price)
+
+
+
+
+#Test case 4
+# Test Case 3 for Tickets Management, Purchase of Tickets for an Exhibition
+
+# Create a visitor
+visitor = Visitor("Reem Alhammadi", 20, "UAE")
+# Create an exhibition
+exhibition = Exhibition(["The Starry Night", "The Persistence of Memory"], "Permanent Gallery", "Ongoing")
+ticket = Ticket(visitor, exhibition=exhibition)# Purchase tickets for exhibition
+
+# Print details of the purchased ticket
+print("Visitor:", ticket.visitor.name)
+print("Exhibition Location:", ticket.exhibition.location)
+print("Exhibition Duration:", ticket.exhibition.duration)
+
+
+
+
+#Test case 5
+# Test Case 4 for Display Payment Receipt for Ticket Purchase
+
+
+# Create a visitor
+visitor = Visitor("Reem Ali", 20, "Emarati")
+# Create an exhibition
+exhibition = Exhibition(["The Starry Night", "The Persistence of Memory"], "Permanent Gallery", "Ongoing")
+
+
+ticket = Ticket(visitor, exhibition=exhibition)# Purchase tickets for exhibition
+
+
+ticket_price = TicketPricing.calculate_price(visitor)# Calculate ticket price
+
+
+total_price = TicketPricing.apply_vat(ticket_price)# Apply VAT
+
+
+# Print payment receipt details
+print("Visitor:", ticket.visitor.name)
+print("Exhibition Location:", ticket.exhibition.location)
+print("Exhibition Duration:", ticket.exhibition.duration)
+print("Ticket Price (before VAT):", ticket_price)
+print("Total Price (after VAT):", total_price)
+
+
+# payment receipt is displayed correctly
+assert total_price == 66.15  # 63 AED ticket price + 5% VAT
