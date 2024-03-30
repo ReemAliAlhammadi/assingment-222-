@@ -1,0 +1,64 @@
+#Artwork class: Represents the artworks in the museum.
+
+
+class Artwork: #Created a class and named it art in aim to make it gather information about the art
+    def __init__(self, title, artist, date, significance): #Constructor method for the art class
+        self.title = title #Initializing the title attribute for the artwork
+        self.artist = artist #Initializing the attribute for artist of the artwork
+        self.date = date #Initialize the data attribute for the artwork
+        self.significance = significance #and the finally initializing the final attribute of the artwork which is significance
+
+# Exhibition class: Represents the exhibitions held in the museum.
+
+class Exhibition: #Defining a class named Exhibition in order to related the artworks, location and duration of the museum to it
+    def __init__(self, artworks, location, duration): # Constructor method for Exhibition class
+        self.artworks = artworks #Initialize the artwork attribute for Exhibition
+        self.location = location#Initializing the attribute of location for Exhibition
+        self.duration = duration #Initialize the duration attribute for Exhibition
+
+
+
+# visitor_management
+
+class Visitor: #Defining a calss named visitor
+    def __init__(self, name, age, nationality): #Making the construction for the class
+        self.name = name #Initializing the name attribute
+        self.age = age #Initializing the attribute of age
+        self.nationality = nationality #Initializing attribute for nationality
+
+
+
+# Ticket class: Represents the tickets purchased by visitors.
+
+class Ticket: #Defining the Ticket class which will represent tickets purchased.
+    def __init__(self, visitor, exhibition=None, event=None): #Making the constructor method for the class
+        self.visitor = visitor #Initializing the visitor attribute of the ticket.
+        self.exhibition = exhibition # Initialize the attribute for exhibition regarging the ticket.
+        self.event = event #Initialize the event attribute for the ticket.
+
+class TicketPricing:# Defining the TicketPricing class which would do methods for calculating ticket prices.
+    VAT_RATE = 0.05 #Giving the VAT rate which is in this case 5% = 0.5 (Since its in UAE)
+
+    @staticmethod #Making a static method to calculate the ticket price based on visitor age.
+    def calculate_price(visitor): #Recalling on visitor to use it in this class.
+        if visitor.age < 18 or visitor.age >= 60: #If visitor age is less than 18 and 60 or above. 
+            return 0  # The ticket price would be free (Since they are children and seniors).
+        elif visitor.age >= 18 and visitor.age <= 60:#If the visitor age is between them.
+            return 63  # Then the Default price for adults will be given.
+        else:
+            return 0  #Just in case to handle other cases
+
+    @staticmethod # A static method to apply the VAT to ticket price.
+    def apply_vat(price): #Recalling on last price
+        return price + (price * TicketPricing.VAT_RATE) #Mathematically calculating the price with the VAT
+
+    @staticmethod #Doing a static method to calculate discount on the ticket price.
+    def calculate_discounted_price(price, discount): #Recalling on both price and discount.
+        return price * (1 - discount) # Return the discounted price.
+
+class Event: #Creating a class named Event
+    def __init__(self, name, location, duration, ticket_price): #Defining the constructor for this class
+        self.name = name # Initialize the name attribute of the event.
+        self.location = location # Initializing location attribute for the event.
+        self.duration = duration # Initializing the duration attribute of the event.
+        self.ticket_price = ticket_price # Initialize the ticket_price attribute for the event.
