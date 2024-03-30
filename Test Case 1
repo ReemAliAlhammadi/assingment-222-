@@ -1,0 +1,19 @@
+# test case 1 for artwork_management, addition of New Art to the Museum
+
+
+# Create a new artwork instance and add it to the museum
+new_artwork = Artwork("Mona Lisa", "Leonardo da Vinci", "1503–1506", "Iconic portrait")
+
+
+# Print out the details of the new artwork
+print("Title:", new_artwork.title)
+print("Artist:", new_artwork.artist)
+print("Date:", new_artwork.date)
+print("Significance:", new_artwork.significance)
+
+
+# Assert that the artwork is successfully added to the museum
+assert new_artwork.title == "Mona Lisa"
+assert new_artwork.artist == "Leonardo da Vinci"
+assert new_artwork.date == "1503–1506"
+assert new_artwork.significance == "Iconic portrait"
