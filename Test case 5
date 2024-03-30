@@ -1,0 +1,29 @@
+#Test case 5
+# Test Case 4 for Display Payment Receipt for Ticket Purchase
+
+
+# Create a visitor
+visitor = Visitor("Reem Ali", 20, "Emarati")
+# Create an exhibition
+exhibition = Exhibition(["The Starry Night", "The Persistence of Memory"], "Permanent Gallery", "Ongoing")
+
+
+ticket = Ticket(visitor, exhibition=exhibition)# Purchase tickets for exhibition
+
+
+ticket_price = TicketPricing.calculate_price(visitor)# Calculate ticket price
+
+
+total_price = TicketPricing.apply_vat(ticket_price)# Apply VAT
+
+
+# Print payment receipt details
+print("Visitor:", ticket.visitor.name)
+print("Exhibition Location:", ticket.exhibition.location)
+print("Exhibition Duration:", ticket.exhibition.duration)
+print("Ticket Price (before VAT):", ticket_price)
+print("Total Price (after VAT):", total_price)
+
+
+# payment receipt is displayed correctly
+assert total_price == 66.15  # 63 AED ticket price + 5% VAT
