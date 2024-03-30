@@ -1,0 +1,13 @@
+#Test case 4
+# Test Case 3 for Tickets Management, Purchase of Tickets for an Exhibition
+
+# Create a visitor
+visitor = Visitor("Reem Alhammadi", 20, "UAE")
+# Create an exhibition
+exhibition = Exhibition(["The Starry Night", "The Persistence of Memory"], "Permanent Gallery", "Ongoing")
+ticket = Ticket(visitor, exhibition=exhibition)# Purchase tickets for exhibition
+
+# Print details of the purchased ticket
+print("Visitor:", ticket.visitor.name)
+print("Exhibition Location:", ticket.exhibition.location)
+print("Exhibition Duration:", ticket.exhibition.duration)
